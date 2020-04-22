@@ -26,7 +26,7 @@ Response:
 GET http://localhost:8080/messages?recipient=anupreeta&status=NEW
 <br>
 Response:
-```json
+``json
 [
     {
         "recipient": "anupreeta",
@@ -35,14 +35,14 @@ Response:
         "dateSent": "01:03:37"
     }
 ]
-```
+``
 The status changes to FETCHED. The second time the request is sent with NEW status, it will be empty
 
 - Get messages by start and stop time index. <br>
  GET http://localhost:8080/messages?startTime=00:01&stopTime=02:00
  <br>
  Response: 
- ```json
+ ``json
 [
     {
         "recipient": "anupreeta",
@@ -51,7 +51,7 @@ The status changes to FETCHED. The second time the request is sent with NEW stat
         "dateSent": "01:03:37"
     }
 ]
-```
+``
 - Delete one or more messages <br>
 DELETE http://localhost:8080/messages?messageId=1 <br>
 DELETE http://localhost:8080/messages <br>
