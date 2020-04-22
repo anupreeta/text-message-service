@@ -6,12 +6,12 @@
 POST http://localhost:8080/messages
 <br>
 Request body:
-````json
+```json
 {
 	"recipient": "anupreeta",
 	"content" : "Hello Anupreeta"
 }
-````
+```
 Response:
 ```json
 {
@@ -20,13 +20,13 @@ Response:
     "status": "NEW",
     "dateSent": "2020-04-21T22:58:17.542+0000"
 }
-````
+```
 
 - Get messages by recipient and status. <br>
 GET http://localhost:8080/messages?recipient=anupreeta&status=NEW
 <br>
 Response:
-````json
+```json
 [
     {
         "recipient": "anupreeta",
@@ -35,7 +35,7 @@ Response:
         "dateSent": "01:03:37"
     }
 ]
-````
+```
 The status changes to FETCHED. The second time the request is sent with NEW status, it will be empty
 
 - Get messages by start and stop time index. <br>
