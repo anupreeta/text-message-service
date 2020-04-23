@@ -6,13 +6,16 @@
 POST http://localhost:8080/messages
 <br>
 Request body:
+
 ```json
 {
 	"recipient": "anupreeta",
 	"content" : "Hello Anupreeta"
 }
 ```
+
 Response:
+
 ```json
 {
     "recipient": "anupreeta",
@@ -43,6 +46,7 @@ The status changes to FETCHED. The second time the request is sent with NEW stat
  GET http://localhost:8080/messages?startTime=00:01&stopTime=02:00
  <br>
  Response: 
+ 
  ```json
 [
     {
@@ -53,6 +57,7 @@ The status changes to FETCHED. The second time the request is sent with NEW stat
     }
 ]
 ```
+
 - Delete one or more messages <br>
 DELETE http://localhost:8080/messages?messageId=1 <br>
 DELETE http://localhost:8080/messages <br>
