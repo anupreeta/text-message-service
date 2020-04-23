@@ -7,6 +7,7 @@ import com.example.demo.repository.entity.MessageEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -50,6 +51,9 @@ public class MessageService {
     }
 
     public void deleteMessages(Long messageId) {
+        if(messageId != null && !messageRepository.existsById(messageId)) {
+            throw new EntityNotFoundException("Message id does not exist");
+        }
         if(messageId != null) {
             messageRepository.deleteById(messageId);
         } else {

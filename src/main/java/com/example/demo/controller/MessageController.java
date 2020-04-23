@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
-import sun.tools.jconsole.Plotter;
+
 
 import javax.validation.constraints.NotNull;
 import java.text.ParseException;
@@ -45,7 +45,7 @@ public class MessageController {
     }
 
     @DeleteMapping(value = "/messages")
-    public ResponseEntity<Plotter.Unit> deleteMessages(@RequestParam @Nullable Long messageId) {
+    public ResponseEntity<Void> deleteMessages(@RequestParam @Nullable Long messageId) {
         messageService.deleteMessages(messageId);
 
         return ResponseEntity.noContent().build();

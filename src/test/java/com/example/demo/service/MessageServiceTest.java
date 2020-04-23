@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import javax.persistence.EntityNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,8 +21,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 class MessageServiceTest {
@@ -100,7 +100,23 @@ class MessageServiceTest {
 
     @Test
     void shouldDeleteMessageById() {
+        assertEquals(messageRepository.count(), 4L);
 
+        target.deleteMessages(1L);
+
+        assertEquals(messageRepository.count(), 3L);
+    }
+
+
+    @Test
+    void shouldFailToDeleteMessageById() {
+        EntityNotFoundException thrown = assertThrows(
+                EntityNotFoundException.class,
+                () -> target.deleteMessages(123L),
+                "Expected target.deleteMessages() to throw, but it didn't"
+        );
+
+        assertTrue(thrown.getMessage().contains("Message id does not exist"));
     }
 
     void initData() {
