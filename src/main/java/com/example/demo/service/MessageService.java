@@ -70,8 +70,8 @@ public class MessageService {
         return messagesByStatus;
     }
 
-    private MessageEntity toMessageEntity(Message messsage) {
-        return modelMapper.map(messsage, MessageEntity.class);
+    private MessageEntity toMessageEntity(Message message) {
+        return modelMapper.map(message, MessageEntity.class);
     }
 
     private Message toMessage(MessageEntity messageEntity) {
