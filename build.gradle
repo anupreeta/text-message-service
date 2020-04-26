@@ -21,8 +21,8 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.2'
-	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.2'
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.3.2'
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.2'
 	testImplementation group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
 }
 
