@@ -1,13 +1,13 @@
 package com.example.demo.model;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 public class Message {
 
-    @NotNull
+    @NotEmpty(message = "recipient cannot be null or empty")
     private String recipient;
-    @NotNull
+    @NotEmpty(message = "content cannot be null or empty")
     private String content;
     private Status status;
     private Date dateSent;

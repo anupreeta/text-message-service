@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import java.text.ParseException;
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class MessageController {
     }
 
     @PostMapping("/messages")
-    public ResponseEntity<Message> sendMessage(@RequestBody Message message) {
+    public ResponseEntity<Message> sendMessage(@Valid @RequestBody @NotEmpty Message message) {
         Message createdMessage = messageService.createMessage(message);
         return new ResponseEntity<>(createdMessage, HttpStatus.OK);
     }
